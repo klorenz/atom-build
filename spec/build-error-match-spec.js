@@ -40,6 +40,7 @@ describe('Error Match', function() {
 
   afterEach(function() {
     fs.removeSync(directory);
+    return atom.packages.deactivatePackage('build');
   });
 
   describe('when output is captured to show editor on error', function () {
@@ -59,6 +60,7 @@ describe('Error Match', function() {
       });
 
       waitsFor(function() {
+        console.log('active text editor');
         return atom.workspace.getActiveTextEditor();
       });
 
